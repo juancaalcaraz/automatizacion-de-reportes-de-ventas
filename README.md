@@ -30,7 +30,7 @@ python main.py
 ```
 # Sobre mí
 
-Soy Técnico Superior en Ciencias de Datos e Inteligencia Artificial. Desarrollo soluciones de automatización para análisis y reporting, Creo dashboard para la toma de deciones estratégicas y aplico soluciones de IA para los negocios que lo requieran.
+Soy Técnico Superior en Ciencias de Datos e Inteligencia Artificial. Desarrollo soluciones de automatización para análisis y reporting, Creo dashboard para la toma de decisiones estratégicas y aplico soluciones de IA para los negocios que lo requieran.
 
 ## Fuente de datos
 
