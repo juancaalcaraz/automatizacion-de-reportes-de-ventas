@@ -31,6 +31,13 @@ def main():
 
     print("Generando gráficos...")
     plot_sales(df, FIGURES_DIR)
+    
+    print("Generando pronóstico...")
+    forecast, lower, upper = plot_forecast_holt_winters(
+        df,
+        FIGURES_DIR,
+        horizon=3
+    )
 
     print("Exportando reporte...")
     export_report(df, kpis, OUTPUT_EXCEL, LAST_N_MONTHS)
