@@ -86,3 +86,10 @@ Los datos se utilizan con fines demostrativos y educativos.
 ## Aviso legal:
 > Los reportes y visualizaciones presentados son ejemplos generados a partir de datos abiertos y no representan información comercial confidencial.
 
+## License
+
+This project is licensed for **personal, educational, and evaluation use only**.  
+Commercial use is **not permitted** without explicit permission from the author.
+
+If you are interested in a commercial license or a customized version of this
+system, feel free to contact me.
