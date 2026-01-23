@@ -1,8 +1,8 @@
 # Automatización de Reportes y predicción de Ventas
-
+-------------------
 ## *Sobre el proyecto*
 Este sistema automático genera reportes de ventas en Excel y PDF usando datos reales, calcula indicadores clave (KPIs), crea gráficos, hace predicciones sobre el total de futuras ventas y envía por email los archivos resultantes de la ejecución. Ideal para crear informes periódicos sin intervención manual.
-
+-------------------
 ## Beneficios para tu negocio
 
 - Ahorra tiempo y esfuerzo cada mes.
@@ -11,14 +11,14 @@ Este sistema automático genera reportes de ventas en Excel y PDF usando datos r
 - Envía informes automáticamente por correo electrónico  
   *(funcionalidad desactivada por defecto; requiere configurar emisor y receptor. Se recomienda usar variables de entorno para no exponer datos sensibles).*  
 - Reduce errores asociados a reportes manuales.
-
+-------------------
 ## ¿Cómo funciona?
 1. Se descargan y limpian los datos.
 2. Se calculan KPIs importantes (ventas totales, tendencia, etc.).
 3. Se generan gráficos y un PDF ejecutivo.
 4. Se exporta un Excel detallado.
 5. Se envía el informe por email automáticamente.
-
+-------------------
 ##  Cómo probarlo.
 Para probar el sistema sigue estos pasos.
 1. Clona este repositorio:
@@ -42,6 +42,8 @@ python main.py
 Esto generará los reportes de ventas y las predicciones de los próximos 3 meses en la carpeta outputs la cual se genera tras la primer ejecución. 
 ### **Nota técnica**
 Por defecto se usa el archivo csv de ventas de supermercados en argentina el cual se descarga directamente desde la URL del data set. Para proporcionar otro origen de datos debes hacerlo a traves del archivo config.py en la constante URL.
+
+-------------------
 ## Ejemplos de salida
 
 ### Reporte de ventas (Excel)
@@ -56,8 +58,6 @@ Contiene el historial de ventas utilizado para el análisis y la predicción.
 
 ![Segunda hoja del reporte](demo/excel_parte2.png)
 
----
-
 ### Predicción de ventas
 
 Gráfico que muestra la tendencia histórica de ventas junto con la predicción para los próximos **3 meses** y sus intervalos de variación.  
@@ -71,6 +71,7 @@ La **línea roja discontinua** representa la predicción del **modelo probabilí
 
 Soy Técnico Superior en Ciencias de Datos e Inteligencia Artificial. Desarrollo soluciones de automatización para análisis y reporting, Creo dashboard para la toma de decisiones estratégicas y aplico soluciones de IA para los negocios que lo requieran.
 
+-------------------
 ## Fuente de datos
 
 Los datos utilizados provienen del portal de Datos Abiertos del Gobierno de la República Argentina  
