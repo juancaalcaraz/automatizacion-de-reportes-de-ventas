@@ -39,6 +39,9 @@ pip install -r requirements.txt
 # ejecutar
 python main.py
 ```
+Esto generará los reportes de ventas y las predicciones de los próximos 3 meses en la carpeta outputs la cual se genera tras la primer ejecución. 
+**Nota técnica**
+Por defecto se usa el archivo csv de ventas de supermercados en argentina el cual se descarga directamente desde la URL del data set. Para proporcionar otro origen de datos debes hacerlo a traves del archivo config.py en la constante URL.
 ## Ejemplos de salida
 
 ### Reporte de ventas (Excel)
