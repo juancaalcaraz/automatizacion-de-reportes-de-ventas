@@ -95,3 +95,6 @@ If you are interested in a commercial license or a customized version of this
 system, feel free to contact me.
 
 You can also reach me via LinkedIn/ Puedes contactarme via LinkedIn: [**User LinkedIn**](https://www.linkedin.com/in/juan-carlos-alcaraz-424a571b4/) 
+
+Or via E-mail: 
+![Conntacot](demo/Contact.png)
