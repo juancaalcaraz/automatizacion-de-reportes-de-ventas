@@ -2,6 +2,7 @@
 -------------------
 ## *Sobre el proyecto*
 Este sistema automático genera reportes de ventas en Excel y PDF usando datos reales, calcula indicadores clave (KPIs), crea gráficos, hace predicciones sobre el total de futuras ventas y envía por email los archivos resultantes de la ejecución. Ideal para crear informes periódicos sin intervención manual.
+
 -------------------
 ## Beneficios para tu negocio
 
