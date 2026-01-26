@@ -59,19 +59,34 @@ def plot_sales(df, figures_dir):
 
     return paths
 
+
+def plot_backtest_validation(ts_scaled, train, test, test_predictions, figures_dir):
+    """
+    Genera un gráfico comparando la predicción del backtest contra la realidad.
+    """
+    plt.figure(figsize=(10, 5))
+    
+    # Datos de entrenamiento
+    plt.plot(train.index, train.values, label="Entrenamiento", color="black", alpha=0.5)
+    
+    # Comparativa: Real vs Predicho
+    plt.plot(test.index, test.values, label="Real (Test)", color="blue", linewidth=2)
+    plt.plot(test.index, test_predictions, label="Predicción Backtest", color="orange", linestyle="--", linewidth=2)
+    
+    plt.title("Validación de Modelo: Predicción vs Realidad (Últimos 12 meses)")
+    plt.xlabel("Fecha")
+    plt.ylabel("Ventas (Escaladas)")
+    plt.legend()
+    plt.grid(alpha=0.3)
+    
+    plt.tight_layout()
+    plt.savefig(os.path.join(figures_dir, "backtest_validation.png"), dpi=150)
+    plt.close()
+#Nueva función 
 def plot_forecast_holt_winters(df, figures_dir, horizon=3):
     """
-    Genera pronóstico Holt-Winters con bandas de confianza (formato gerencial).
-
-    Parámetros:
-    df : pd.DataFrame
-        Columnas: 'indice_tiempo', 'ventas_totales_canal_venta'
-    figures_dir : str
-        Carpeta donde se guarda el gráfico
-    horizon : int
-        Meses a pronosticar
+    Genera pronóstico Holt-Winters con validación (Backtesting) y bandas de confianza.
     """
-
     os.makedirs(figures_dir, exist_ok=True)
 
     # --- Preparar serie de tiempo ---
@@ -79,39 +94,48 @@ def plot_forecast_holt_winters(df, figures_dir, horizon=3):
         df.sort_values("indice_tiempo")
           .set_index("indice_tiempo")["ventas_totales_canal_venta"]
     )
-
     ts.index = pd.to_datetime(ts.index)
-    ts = ts.asfreq("MS")
-    ts = ts.dropna()
+    ts = ts.asfreq("MS").dropna()
 
-    # ================================
-    # ESCALADO A MILES DE MILLONES
-    # ================================
     scale = 1e9
     ts_scaled = ts / scale
 
-    # --- Modelo Holt-Winters ---
-    model = ExponentialSmoothing(
-        ts_scaled,
-        trend="add",
-        seasonal="add",
-        seasonal_periods=12
-    )
+    # ==========================================
+    # 1. BACKTESTING (Validación del modelo)
+    # ==========================================
+    # Reservamos los últimos 12 meses para testear la precisión
+    train_size = len(ts_scaled) - 12
+    train, test = ts_scaled.iloc[:train_size], ts_scaled.iloc[train_size:]
 
-    fit = model.fit(optimized=True)
+    model_backtest = ExponentialSmoothing(
+        train, trend="add", seasonal="add", seasonal_periods=12
+    ).fit(optimized=True)
+    
+    # Predecimos el periodo de test para calcular el error real
+    test_predictions = model_backtest.forecast(len(test))
+    rmse_backtest = np.sqrt(np.mean((test - test_predictions)**2))
+    
+    print(f"--- Validación finalizada ---")
+    print(f"Registros totales: {len(ts_scaled)}")
+    print(f"Operaciones en Backtest: {len(test)} meses")
+    print(f"RMSE de validación: {rmse_backtest:.4f} B")
+    # ... después de calcular test_predictions ...
+    plot_backtest_validation(ts_scaled, train, test, test_predictions, figures_dir)
+    # ==========================================
+    # 2. PREDICCIÓN FINAL (Uso de todos los datos)
+    # ==========================================
+    # Ahora sí, entrenamos con el 100% para el futuro real
+    final_model = ExponentialSmoothing(
+        ts_scaled, trend="add", seasonal="add", seasonal_periods=12
+    ).fit(optimized=True)
 
-    # --- Forecast ---
-    forecast_scaled = fit.forecast(horizon)
+    forecast_scaled = final_model.forecast(horizon)
+    
+    # Usamos el RMSE del backtest para los intervalos (es más realista que el de ajuste)
+    upper_scaled = forecast_scaled + 1.96 * rmse_backtest
+    lower_scaled = forecast_scaled - 1.96 * rmse_backtest
 
-    # --- Error histórico (RMSE) ---
-    residuals = ts_scaled - fit.fittedvalues
-    rmse = np.sqrt(np.mean(residuals**2))
-
-    # --- Intervalos de confianza ---
-    upper_scaled = forecast_scaled + 1.96 * rmse
-    lower_scaled = forecast_scaled - 1.96 * rmse
-
-    # --- Reescalar a valores reales ---
+    # Reescalar
     forecast = forecast_scaled * scale
     lower = lower_scaled * scale
     upper = upper_scaled * scale
@@ -120,62 +144,58 @@ def plot_forecast_holt_winters(df, figures_dir, horizon=3):
     # GRÁFICO (FORMATO GERENCIAL)
     # ================================
     plt.figure(figsize=(11, 5))
-
-    plt.plot(ts.index, ts.values / scale, 
-             label="Ventas reales", color="black")
-
-    plt.plot(fit.fittedvalues.index, fit.fittedvalues.values, 
-             label="Ajuste Holt-Winters", color="green")
-
+    plt.plot(ts.index, ts.values / scale, label="Ventas reales", color="black", linewidth=1.5)
+    plt.plot(final_model.fittedvalues.index, final_model.fittedvalues.values, 
+             label="Ajuste histórico", color="green", alpha=0.6)
+    
     plt.plot(forecast.index, forecast.values / scale,
-             label=f"Pronóstico ({horizon} meses)",
-             linestyle="--", color="red")
+             label=f"Pronóstico ({horizon} meses)", linestyle="--", color="red")
 
-    plt.fill_between(
-        forecast.index,
-        lower.values / scale,
-        upper.values / scale,
-        color="red",
-        alpha=0.2,
-        label="Intervalo de confianza (95%)"
-    )
+    plt.fill_between(forecast.index, lower.values / scale, upper.values / scale,
+                     color="red", alpha=0.15, label="Intervalo de confianza (Backtest)")
 
-    plt.title("Proyección de Ventas Totales")
+    plt.title("Proyección de Ventas Totales (Validada vía Backtesting)")
     plt.xlabel("Fecha")
     plt.ylabel("Ventas (miles de millones)")
     plt.legend()
     plt.grid(alpha=0.3)
 
     ax = plt.gca()
-
-    # Formato eje Y → miles de millones (B)
-    ax.ticklabel_format(style="plain", axis="y")
-    ax.get_yaxis().get_offset_text().set_visible(False)
-    ax.yaxis.set_major_formatter(
-        mtick.FuncFormatter(lambda x, _: f"{x:.1f} B")
-    )
+    ax.yaxis.set_major_formatter(mtick.FuncFormatter(lambda x, _: f"{x:.1f} B"))
 
     plt.tight_layout()
     plt.savefig(os.path.join(figures_dir, "forecast_hw.png"), dpi=150)
     plt.close()
 
     # ================================
-    # EXPORTAR A EXCEL
+    # EXPORTAR A EXCEL (CON ESCENARIOS)
     # ================================
-    forecast_df = forecast.reset_index()
-    forecast_df.columns = ["Mes", "Proyección total de ventas"]
+    # Creamos un DataFrame con el forecast y los intervalos
+    forecast_df = pd.DataFrame({
+        "Mes": forecast.index,
+        "Ventas Escenario Mínimo": lower.values,
+        "Proyección Ventas (Base)": forecast.values,
+        "Ventas Escenario Máximo": upper.values
+    })
 
-    forecast_df["Proyección total de ventas"] = (
-        forecast_df["Proyección total de ventas"]
-        .round(0)
-        .astype("int64")
-    )
+    # Redondear y pasar a entero para un formato más limpio
+    cols_a_formatear = [
+        "Ventas Escenario Mínimo", 
+        "Proyección Ventas (Base)", 
+        "Ventas Escenario Máximo"
+    ]
+    
+    for col in cols_a_formatear:
+        forecast_df[col] = forecast_df[col].round(0).astype("int64")
 
+    # Guardar en la carpeta de outputs
+    os.makedirs("outputs", exist_ok=True)
     forecast_df.to_excel(
-        "outputs/forecast.xlsx",
+        "outputs/forecast_escenarios.xlsx", 
         index=False
     )
 
+    print("✅ Excel exportado con escenarios Mínimo, Base y Máximo.")
+    
     return forecast, lower, upper
-
 

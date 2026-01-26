@@ -3,7 +3,7 @@ from config import DATA_URL, OUTPUT_EXCEL, FIGURES_DIR, LAST_N_MONTHS
 from src.ingest import ingest_data
 from src.validation import validate_data
 from src.metrics import compute_kpis
-from src.visualization import plot_sales
+from src.visualization import plot_sales, plot_forecast_holt_winters
 from src.reporting import export_report
 from src.pdf_report import generate_pdf
 from config import (
