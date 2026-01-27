@@ -61,15 +61,16 @@ Contiene el historial de ventas utilizado para el análisis y la predicción.
 
 ### Predicción de ventas
 Para la predicción de ventas el sistema implementa el modelo probabilistico Hold-Winters. Este modelo se entrena cada ves que el sistema se ejecuta, actualizando sus estimaciones con la información más reciente.
-**Validación del modelo**
+
+#### **Validación del modelo**
 Antes de entrenarse con todo el data set, el modelo realizo predicciones para el último año de ventas registrados en el data set. Luego estas predicciones fueron comparadas con los valores reales.   
 ![Validación del modelo](demo/backtest_validation.png)
 
-Gráfico que muestra la tendencia histórica de ventas junto con la predicción para los próximos **3 meses** y sus intervalos de variación.  
-La **línea roja discontinua** representa la predicción del **modelo probabilístico**, mientras que el área sombreada indica el rango esperado de variación.
+#### Gráfico que muestra la tendencia histórica de ventas junto con la #### predicción para los próximos **3 meses** y sus intervalos de variación.  
+#### La **línea roja discontinua** representa la predicción del **modelo probabilístico**, mientras que el área sombreada indica el rango esperado de variación.
 ![Predicción de ventas](demo/forecast_hw.png)
 
-Excel generado con las predicciónes para los futúros 3 meses de ventas. *Aclaración*: La última actualización del data set al ejecutarse este sistema fue en octubre del 2025.   
+#### Excel generado con las predicciónes para los futúros 3 meses de ventas. *Aclaración*: La última actualización del data set al ejecutarse este sistema fue en octubre del 2025.   
 ![Predicción de ventas](demo/Proyeccion_min_max.png)
 
 -----------------------------------------------------------------------
