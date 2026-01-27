@@ -66,7 +66,7 @@ La **línea roja discontinua** representa la predicción del **modelo probabilí
 
 ![Predicción de ventas](demo/forecast_hw.png)
 Excel generado con las predicciónes para los futúros 3 meses de ventas. *Aclaración*: La última actualización del data set al ejecutarse este sistema fue en octubre del 2025.   
-![Predicción de ventas](demo/Proyeccion.png)
+![Predicción de ventas](demo/Proyeccion_min_max.png)
 
 -----------------------------------------------------------------------
 # Sobre mí

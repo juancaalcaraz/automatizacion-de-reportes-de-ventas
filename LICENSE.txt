@@ -1,5 +1,5 @@
 Custom Non-Commercial License
-Copyright (c) 2025 Juan Carlos Alcaraz
+Copyright (c) 2026 Juan Carlos Alcaraz
 
 Permission is hereby granted to any person obtaining a copy of this software
 and associated documentation files (the "Software") to use the Software
