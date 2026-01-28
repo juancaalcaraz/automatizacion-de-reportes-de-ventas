@@ -1,4 +1,5 @@
 # Automatización de Reportes y predicción de Ventas
+![banner](demo/banner.png)
 -------------------
 ## *Sobre el proyecto*
 Este sistema automático genera reportes de ventas en Excel y PDF usando datos reales, calcula indicadores clave (KPIs), crea gráficos, hace predicciones sobre el total de futuras ventas y envía por email los archivos resultantes de la ejecución. Ideal para crear informes periódicos sin intervención manual.
@@ -98,7 +99,7 @@ Commercial use is **not permitted** without explicit permission from the author.
 
 If you are interested in a commercial license or a customized version of this
 system, feel free to contact me.
-
+## Contact/ Contacto
 You can also reach me via LinkedIn/ Puedes contactarme via LinkedIn: [**User LinkedIn**](https://www.linkedin.com/in/juan-carlos-alcaraz-424a571b4/) 
 
 Or via E-mail: 
