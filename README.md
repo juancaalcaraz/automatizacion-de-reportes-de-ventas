@@ -1,10 +1,12 @@
 # Automatización de Reportes y predicción de Ventas
 ![banner](demo/banner.png)
+
 -------------------
 
 ## Tabla de Contenido
 
 - [Sobre el proyecto](#sobre-el-proyecto)
+- [Tecnologías utilizadas](#Tecnologías-utilizadas)
 - [Beneficios para tu negocio](#beneficios-para-tu-negocio)
 - [¿Cómo funciona?](#cómo-funciona)
 - [Cómo probarlo](#cómo-probarlo)
@@ -19,9 +21,23 @@
 - [Contacto / Contact](#contacto--contact)
 
 ----------------------
-
 ## *Sobre el proyecto*
 Este sistema automático genera reportes de ventas en Excel y PDF usando datos reales, calcula indicadores clave (KPIs), crea gráficos, hace predicciones sobre el total de futuras ventas y envía por email los archivos resultantes de la ejecución. Ideal para crear informes periódicos sin intervención manual.
+
+----------------------
+## Tecnologías utilizadas
+
+- **Python 3.9**
+- **pandas** (=2.2.3)  
+  Manipulación y análisis de datos.
+- **matplotlib** (3.7.2)  
+  Generación de gráficos y visualizaciones.
+- **reportlab** (4.4.9)  
+  Creación de reportes ejecutivos en PDF.
+- **openpyxl** (3.1.5)  
+  Generación de archivos Excel con múltiples hojas.
+- **statsmodels** (0.14.4)  
+  Modelado estadístico y predicción de series de tiempo (Holt-Winters).
 
 ----------------------
 ## Beneficios para tu negocio
