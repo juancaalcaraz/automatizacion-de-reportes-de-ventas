@@ -1,10 +1,29 @@
 # Automatización de Reportes y predicción de Ventas
 ![banner](demo/banner.png)
 -------------------
+
+## Tabla de Contenido
+
+- [Sobre el proyecto](#sobre-el-proyecto)
+- [Beneficios para tu negocio](#beneficios-para-tu-negocio)
+- [¿Cómo funciona?](#cómo-funciona)
+- [Cómo probarlo](#cómo-probarlo)
+- [Ejemplos de salida](#ejemplos-de-salida)
+  - [Reporte de ventas (Excel)](#reporte-de-ventas-excel)
+  - [Predicción de ventas](#predicción-de-ventas)
+    - [Validación del modelo](#validación-del-modelo)
+- [Sobre mí](#sobre-mí)
+- [Fuente de datos](#fuente-de-datos)
+- [Aviso legal](#aviso-legal)
+- [License](#license)
+- [Contacto / Contact](#contacto--contact)
+
+----------------------
+
 ## *Sobre el proyecto*
 Este sistema automático genera reportes de ventas en Excel y PDF usando datos reales, calcula indicadores clave (KPIs), crea gráficos, hace predicciones sobre el total de futuras ventas y envía por email los archivos resultantes de la ejecución. Ideal para crear informes periódicos sin intervención manual.
 
--------------------
+----------------------
 ## Beneficios para tu negocio
 
 - Ahorra tiempo y esfuerzo cada mes.
