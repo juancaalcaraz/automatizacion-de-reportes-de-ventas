@@ -32,7 +32,8 @@ Este sistema automático genera reportes de ventas en Excel y PDF usando datos r
 - Envía informes automáticamente por correo electrónico  
   *(funcionalidad desactivada por defecto; requiere configurar emisor y receptor. Se recomienda usar variables de entorno para no exponer datos sensibles).*  
 - Reduce errores asociados a reportes manuales.
-[Volver a la tabla de contenido](#Tabla-de-Contenido)
+
+## -> [Volver a la tabla de contenido](#Tabla-de-Contenido)
 -------------------
 ## ¿Cómo funciona?
 1. Se descargan y limpian los datos.
@@ -64,7 +65,9 @@ python main.py
 Esto generará los reportes de ventas y las predicciones de los próximos 3 meses en la carpeta outputs la cual se genera tras la primer ejecución. 
 ### **Nota técnica**
 Por defecto se usa el archivo csv de ventas de supermercados en argentina el cual se descarga directamente desde la URL del data set. Para proporcionar otro origen de datos debes hacerlo a traves del archivo config.py en la constante URL.
-[Volver a la tabla de contenido](#Tabla-de-Contenido)
+
+## ->[Volver a la tabla de contenido](#Tabla-de-Contenido)
+
 -------------------
 ## Ejemplos de salida
 
@@ -93,7 +96,7 @@ Antes de entrenarse con todo el data set, el modelo realizo predicciones para el
 #### Excel generado con las predicciónes para los futúros 3 meses de ventas. *Aclaración*: La última actualización del data set al ejecutarse este sistema fue en octubre del 2025.   
 ![Predicción de ventas](demo/Proyeccion_min_max.png)
 
-[Volver a la tabla de contenido](#Tabla-de-Contenido)
+## ->[Volver a la tabla de contenido](#Tabla-de-Contenido)
 -----------------------------------------------------------------------
 # Sobre mí
 
@@ -108,7 +111,7 @@ Dataset: [**Ventas en supermercados**](https://www.datos.gob.ar/sv/dataset/sspm-
 Fuente: https://datos.gob.ar  
 Los datos se utilizan con fines demostrativos y educativos.
 
-[Volver a la tabla de contenido](#Tabla-de-Contenido)
+## ->[Volver a la tabla de contenido](#Tabla-de-Contenido)
 
 ## Aviso legal:
 > Los reportes y visualizaciones presentados son ejemplos generados a partir de datos abiertos y no representan información comercial confidencial.
@@ -126,4 +129,4 @@ You can also reach me via LinkedIn/ Puedes contactarme via LinkedIn: [**User Lin
 Or via E-mail: 
 ![Conntacot](demo/Contact.png)
 
-[Volver a la tabla de contenido](#Tabla-de-Contenido)
+## ->[Volver a la tabla de contenido](#Tabla-de-Contenido)
