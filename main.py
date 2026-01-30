@@ -5,7 +5,7 @@ from src.validation import validate_data
 from src.metrics import compute_kpis
 from src.visualization import plot_sales, plot_forecast_holt_winters
 from src.reporting import export_report
-from src.pdf_report import generate_pdf
+from src.pdf_report import generate_pdf, protect_pdf
 from config import (
     SEND_EMAIL,
     EMAIL_RECIPIENTS,
@@ -33,19 +33,20 @@ def main():
     plot_sales(df, FIGURES_DIR)
     
     print("Generando pronóstico...")
-    forecast, lower, upper = plot_forecast_holt_winters(
+    forecast_data, lower, upper = plot_forecast_holt_winters(
         df,
         FIGURES_DIR,
         horizon=3
     )
-
     print("Exportando reporte...")
     export_report(df, kpis, OUTPUT_EXCEL, LAST_N_MONTHS)
 
     print("Reporte generado correctamente.")
 
     print("Generando PDF ejecutivo...")
-    generate_pdf(kpis, FIGURES_DIR, PDF_PATH)
+    generate_pdf(kpis, forecast_data, FIGURES_DIR, PDF_PATH)
+    print("Encriptando PDF...")
+    protect_pdf(PDF_PATH, PDF_PATH, "")
     print("Proceso de envío de email...")
     send_report_email(
     send_email=SEND_EMAIL,

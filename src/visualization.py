@@ -197,5 +197,5 @@ def plot_forecast_holt_winters(df, figures_dir, horizon=3):
 
     print("✅ Excel exportado con escenarios Mínimo, Base y Máximo.")
     
-    return forecast, lower, upper
+    return forecast_df, lower, upper
 
