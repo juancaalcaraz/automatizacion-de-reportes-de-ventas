@@ -1,0 +1,11 @@
+# Secretos y Variables de Entorno
+.env
+
+# Archivos de Python (Cache)
+__pycache__/
+*.pyc
+
+# Salidas de datos (Opcional, si no querés subir tus reportes generados)
+outputs/
+*.pdf
+*.xlsx
