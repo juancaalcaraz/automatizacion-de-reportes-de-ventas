@@ -14,6 +14,7 @@
   - [Reporte de ventas (Excel)](#reporte-de-ventas-excel)
   - [Predicción de ventas](#predicción-de-ventas)
     - [Validación del modelo](#validación-del-modelo)
+- [Seguridad y privacidad de los datos](#Seguridad-y-Privacidad-de-Datos)    
 - [Sobre mí](#sobre-mí)
 - [Fuente de datos](#fuente-de-datos)
 - [Aviso legal](#aviso-legal)
@@ -114,6 +115,26 @@ Antes de entrenarse con todo el data set, el modelo realizo predicciones para el
 
 ## ->[Volver a la tabla de contenido](#Tabla-de-Contenido)
 -----------------------------------------------------------------------
+## Seguridad y Privacidad de Datos
+
+Este proyecto prioriza la confidencialidad de la información comercial. No solo automatiza el envío, sino que protege los activos generados mediante las siguientes capas de seguridad:
+
+* **Cifrado de Archivos (AES):** Tanto los reportes en **PDF** como los archivos **Excel** se exportan con cifrado. Esto garantiza que la información de ventas no sea legible si el archivo cae en manos no autorizadas.
+
+* **Arquitectura :** Se implementó un módulo de seguridad independiente (`src/security.py`) que centraliza la lógica de cifrado y el manejo de excepciones, asegurando que el proceso de envío no se interrumpa ante errores de permisos.
+
+### Evidencia de Protección
+
+Para garantizar la integridad de los datos, los archivos generados requieren autenticación para su apertura:
+
+| Protección de Excel | Protección de PDF |
+| :---: | :---: |
+| ![Password Excel](demo/Excel_pretegido.png) | ![Password PDF](demo/PDF_protegido.png) |
+| *Acceso restringido a datos crudos* | *Reporte ejecutivo cifrado* |
+
+> **Nota:** La contraseña por defecto se configura en la variable `PASSWORD` dentro del archivo `.env`.
+
+-----------------
 # Sobre mí
 
 Soy Técnico Superior en Ciencias de Datos e Inteligencia Artificial. Desarrollo soluciones de automatización para análisis y reporting, Creo dashboard para la toma de decisiones estratégicas y aplico soluciones de IA para los negocios que lo requieran.

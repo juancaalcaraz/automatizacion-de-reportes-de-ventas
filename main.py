@@ -4,10 +4,10 @@ from src.ingest import ingest_data
 from src.validation import validate_data
 from src.metrics import compute_kpis
 from src.visualization import plot_sales
-from src.forecast import  plot_forecast_holt_winters
+from src.forecast import plot_forecast_holt_winters
 from src.reporting import export_report
 from src.pdf_report import generate_pdf
-from src.security import  protect_pdf, protect_excel
+from src.security import protect_pdf, protect_excel
 from src.emailer import send_report_email
 import os
 from dotenv import load_dotenv
