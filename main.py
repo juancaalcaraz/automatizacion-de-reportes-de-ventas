@@ -1,9 +1,10 @@
-from config import DATA_URL, OUTPUT_EXCEL, FIGURES_DIR, LAST_N_MONTHS
+from config import DATA_URL, OUTPUT_EXCEL, FIGURES_DIR, LAST_N_MONTHS, OUTPUT_FORECAST
 
 from src.ingest import ingest_data
 from src.validation import validate_data
 from src.metrics import compute_kpis
-from src.visualization import plot_sales, plot_forecast_holt_winters
+from src.visualization import plot_sales
+from src.forecast import  plot_forecast_holt_winters
 from src.reporting import export_report
 from src.pdf_report import generate_pdf
 from src.security import  protect_pdf, protect_excel
@@ -36,9 +37,11 @@ def main():
     print("Generando pronóstico...")
     forecast_data, lower, upper = plot_forecast_holt_winters(
         df,
-        FIGURES_DIR,
+        FIGURES_DIR,OUTPUT_FORECAST, 
         horizon=3
     )
+    print("Cifrando el Forecast...")
+    protect_excel(OUTPUT_FORECAST,"4ut0m4t1zac1*n")
     print("Exportando reporte...")
     export_report(df, kpis, OUTPUT_EXCEL, LAST_N_MONTHS)
 
