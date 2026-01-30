@@ -5,7 +5,7 @@
 __pycache__/
 *.pyc
 
-# Salidas de datos (Opcional, si no querés subir tus reportes generados)
+# Salidas de datos 
 outputs/
 *.pdf
 *.xlsx

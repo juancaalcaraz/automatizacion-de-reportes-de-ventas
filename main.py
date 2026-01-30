@@ -8,21 +8,17 @@ from src.forecast import  plot_forecast_holt_winters
 from src.reporting import export_report
 from src.pdf_report import generate_pdf
 from src.security import  protect_pdf, protect_excel
-from config import (
-    SEND_EMAIL,
-    EMAIL_RECIPIENTS,
-    SMTP_SERVER,
-    SMTP_PORT,
-    SMTP_USER,
-    SMTP_PASSWORD
-)
-
 from src.emailer import send_report_email
 import os
 from dotenv import load_dotenv
 # === Cargar variables de entorno ===
 load_dotenv()
 PASSWORD = os.getenv("PASSWORD")
+# Extraemos las variables del envio del mail en .env
+SMTP_USER = os.getenv("SMTP_USER")
+SMTP_PASSWORD = os.getenv("SMTP_PASS")
+# destinatarios de los e-mails. 
+EMAIL_RECIPIENTS = os.getenv("EMAIL_RECIPIENTS").split(",")
 PDF_PATH = "outputs/reporte_ejecutivo.pdf"
 EXCEL_PATH = OUTPUT_EXCEL
 def main():
@@ -59,19 +55,19 @@ def main():
     protect_pdf(PDF_PATH, PASSWORD)
     print("Proceso de envío de email...")
     send_report_email(
-    send_email=SEND_EMAIL,
+    send_email=False,
     recipients=EMAIL_RECIPIENTS,
-    subject="Reporte mensual – Ventas en Supermercados",
+    subject=os.getenv("EMAIL_SUBJECT"),
     body=(
         "Adjuntamos el reporte mensual actualizado.\n\n"
         "Este informe fue generado automáticamente.\n\n"
         "Saludos."
     ),
     attachments=[EXCEL_PATH, PDF_PATH, OUTPUT_FORECAST],
-    smtp_server=SMTP_SERVER,
-    smtp_port=SMTP_PORT,
+    smtp_server=os.getenv("SMTP_SERVER"),
+    smtp_port=int(os.getenv("SMTP_PORT")),
     smtp_user=SMTP_USER,
     smtp_password=SMTP_PASSWORD
-    )
+    ) 
 if __name__ == "__main__":
     main()
