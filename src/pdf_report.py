@@ -5,7 +5,6 @@ from reportlab.lib.units import cm
 from reportlab.lib import colors
 from datetime import datetime
 import os
-import PyPDF2
 
 def generate_pdf(kpis, forecast_df, figures_dir, output_path):
     """
@@ -96,28 +95,3 @@ def generate_pdf(kpis, forecast_df, figures_dir, output_path):
 
     doc.build(elements)
     print(f"✅ Dashboard PDF generado exitosamente en: {output_path}.")
-
-def protect_pdf(input_path, output_path, password):
-    """
-    Funcion para proteger el pdf. 
-    """
-    try:
-        reader = PyPDF2.PdfReader(input_path)
-        writer = PyPDF2.PdfWriter()
-
-        # Copiar todas las páginas al escritor
-        for page in reader.pages:
-            writer.add_page(page)
-
-        # Aplicar la encriptación
-        writer.encrypt(password)
-
-        # Guardar el archivo protegido
-        with open(output_path, "wb") as f:
-            writer.write(f)
-        
-        print(f"🔒 PDF protegido exitosamente: {output_path}")
-        return True
-    except Exception as e:
-        print(f"❌ Error al proteger el PDF: {e}")
-        return False

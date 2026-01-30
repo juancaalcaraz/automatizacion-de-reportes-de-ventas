@@ -5,7 +5,8 @@ from src.validation import validate_data
 from src.metrics import compute_kpis
 from src.visualization import plot_sales, plot_forecast_holt_winters
 from src.reporting import export_report
-from src.pdf_report import generate_pdf, protect_pdf
+from src.pdf_report import generate_pdf
+from src.security import  protect_pdf, protect_excel
 from config import (
     SEND_EMAIL,
     EMAIL_RECIPIENTS,
@@ -43,10 +44,12 @@ def main():
 
     print("Reporte generado correctamente.")
 
+    print("Encriptando Reporte en Excel")
+    protect_excel(OUTPUT_EXCEL, "4ut0m4t1zac1*n")
     print("Generando PDF ejecutivo...")
     generate_pdf(kpis, forecast_data, FIGURES_DIR, PDF_PATH)
     print("Encriptando PDF...")
-    protect_pdf(PDF_PATH, PDF_PATH, "")
+    protect_pdf(PDF_PATH, "4ut0m4t1zac1*n")
     print("Proceso de envío de email...")
     send_report_email(
     send_email=SEND_EMAIL,
