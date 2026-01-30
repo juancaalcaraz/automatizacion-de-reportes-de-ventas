@@ -18,7 +18,11 @@ from config import (
 )
 
 from src.emailer import send_report_email
-
+import os
+from dotenv import load_dotenv
+# === Cargar variables de entorno ===
+load_dotenv()
+PASSWORD = os.getenv("PASSWORD")
 PDF_PATH = "outputs/reporte_ejecutivo.pdf"
 EXCEL_PATH = OUTPUT_EXCEL
 def main():
@@ -41,18 +45,18 @@ def main():
         horizon=3
     )
     print("Cifrando el Forecast...")
-    protect_excel(OUTPUT_FORECAST,"4ut0m4t1zac1*n")
+    protect_excel(OUTPUT_FORECAST,PASSWORD)
     print("Exportando reporte...")
     export_report(df, kpis, OUTPUT_EXCEL, LAST_N_MONTHS)
 
     print("Reporte generado correctamente.")
 
     print("Encriptando Reporte en Excel")
-    protect_excel(OUTPUT_EXCEL, "4ut0m4t1zac1*n")
+    protect_excel(OUTPUT_EXCEL, PASSWORD)
     print("Generando PDF ejecutivo...")
     generate_pdf(kpis, forecast_data, FIGURES_DIR, PDF_PATH)
     print("Encriptando PDF...")
-    protect_pdf(PDF_PATH, "4ut0m4t1zac1*n")
+    protect_pdf(PDF_PATH, PASSWORD)
     print("Proceso de envío de email...")
     send_report_email(
     send_email=SEND_EMAIL,
@@ -63,7 +67,7 @@ def main():
         "Este informe fue generado automáticamente.\n\n"
         "Saludos."
     ),
-    attachments=[EXCEL_PATH, PDF_PATH],
+    attachments=[EXCEL_PATH, PDF_PATH, OUTPUT_FORECAST],
     smtp_server=SMTP_SERVER,
     smtp_port=SMTP_PORT,
     smtp_user=SMTP_USER,
