@@ -35,10 +35,11 @@ def main():
     plot_sales(df, FIGURES_DIR)
     
     print("Generando pronóstico...")
+    
     forecast_data, lower, upper = plot_forecast_holt_winters(
-        df,
-        FIGURES_DIR,OUTPUT_FORECAST, 
-        horizon=3
+            df,
+            FIGURES_DIR,OUTPUT_FORECAST, 
+            horizon=3
     )
     print("Cifrando el Forecast...")
     protect_excel(OUTPUT_FORECAST,PASSWORD)
