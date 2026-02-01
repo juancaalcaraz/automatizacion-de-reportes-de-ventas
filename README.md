@@ -18,7 +18,7 @@
 - [Sobre mí](#sobre-mí)
 - [Fuente de datos](#fuente-de-datos)
 - [Aviso legal](#aviso-legal)
-- [License](#license)
+- [License / Licencia](#License--Licencia)
 - [Contacto / Contact](#contacto--contact)
 
 ----------------------
@@ -153,13 +153,16 @@ Los datos se utilizan con fines demostrativos y educativos.
 ## Aviso legal:
 > Los reportes y visualizaciones presentados son ejemplos generados a partir de datos abiertos y no representan información comercial confidencial.
 
-## License
+## License / Licencia
 
-This project is licensed for **personal, educational, and evaluation use only**.  
-Commercial use is **not permitted** without explicit permission from the author.
+**EN:** This project is licensed for **personal, educational, and evaluation use only**.  
+Commercial use is **not permitted** without explicit permission from the author.  
+If you are interested in a commercial license or a customized version, feel free to contact me.
 
-If you are interested in a commercial license or a customized version of this
-system, feel free to contact me.
+**ES:** Este proyecto está autorizado únicamente para **uso personal, educativo y de evaluación**.  
+El uso comercial **no está permitido** sin el permiso explícito del autor.  
+Si estás interesado en una licencia comercial o una versión personalizada de este sistema, no dudes en contactarme.
+
 ## Contact/ Contacto
 You can also reach me via LinkedIn/ Puedes contactarme via LinkedIn: [**User LinkedIn**](https://www.linkedin.com/in/juan-carlos-alcaraz-424a571b4/) 
 
