@@ -101,7 +101,7 @@ Contiene el historial de ventas utilizado para el análisis y la predicción.
 ![Segunda hoja del reporte](demo/excel_parte2.png)
 
 ### Predicción de ventas
-Para la predicción de ventas el sistema implementa el modelo probabilistico Hold-Winters. Este modelo se entrena cada ves que el sistema se ejecuta, actualizando sus estimaciones con la información más reciente.
+Originalmente, el sistema se desarrolló utilizando el modelo Holt-Winters (Suavizado Exponencial Triple). Tras una fase de validación y mejora, se migró hacia ETS (Error-Trend-Seasonal) como motor principal. Este modelo se entrena cada ves que el sistema se ejecuta, actualizando sus estimaciones con la información más reciente.
 
 #### **Validación del modelo**
 Antes de entrenarse con todo el data set, el modelo realizo predicciones para el último año de ventas registrados en el data set. Luego estas predicciones fueron comparadas con los valores reales.   
