@@ -6,9 +6,9 @@
 ## Tabla de Contenido
 
 - [Sobre el proyecto](#sobre-el-proyecto)
-- [Tecnologías utilizadas](#Tecnologías-utilizadas)
 - [Beneficios para tu negocio](#beneficios-para-tu-negocio)
 - [¿Cómo funciona?](#cómo-funciona)
+- [Tecnologías utilizadas](#Tecnologías-utilizadas)
 - [Cómo probarlo](#cómo-probarlo)
 - [Ejemplos de salida](#ejemplos-de-salida)
   - [Reporte de ventas (Excel)](#reporte-de-ventas-excel)
@@ -26,21 +26,6 @@
 Este sistema automático genera reportes de ventas en Excel y PDF usando datos reales, calcula indicadores clave (KPIs), crea gráficos, hace predicciones sobre el total de futuras ventas y envía por email los archivos resultantes de la ejecución. Ideal para crear informes periódicos sin intervención manual.
 
 ----------------------
-## Tecnologías utilizadas
-
-- **Python 3.9**
-- **pandas** (=2.2.3)  
-  Manipulación y análisis de datos.
-- **matplotlib** (3.7.2)  
-  Generación de gráficos y visualizaciones.
-- **reportlab** (4.4.9)  
-  Creación de reportes ejecutivos en PDF.
-- **openpyxl** (3.1.5)  
-  Generación de archivos Excel con múltiples hojas.
-- **statsmodels** (0.14.4)  
-  Modelado estadístico y predicción de series de tiempo (Holt-Winters).
-
-----------------------
 ## Beneficios para tu negocio
 
 - Ahorra tiempo y esfuerzo cada mes.
@@ -50,7 +35,6 @@ Este sistema automático genera reportes de ventas en Excel y PDF usando datos r
   *(funcionalidad desactivada por defecto; requiere configurar emisor y receptor. Se recomienda usar variables de entorno para no exponer datos sensibles).*  
 - Reduce errores asociados a reportes manuales.
 
-## -> [Volver a la tabla de contenido](#Tabla-de-Contenido)
 -------------------
 ## ¿Cómo funciona?
 1. Se descargan y limpian los datos.
@@ -58,7 +42,26 @@ Este sistema automático genera reportes de ventas en Excel y PDF usando datos r
 3. Se generan gráficos y un PDF ejecutivo.
 4. Se exporta un Excel detallado.
 5. Se envía el informe por email automáticamente.
+
+## -> [Volver a la tabla de contenido](#Tabla-de-Contenido)
 -------------------
+
+## Tecnologías utilizadas
+
+- **Python 3.9**
+- **pandas**   
+  Manipulación y análisis de datos.
+- **matplotlib** 
+  Generación de gráficos y visualizaciones.
+- **reportlab**  
+  Creación de reportes ejecutivos en PDF.
+- **openpyxl**  
+  Generación de archivos Excel con múltiples hojas.
+- **statsmodels**  
+  Modelado estadístico y predicción de series de tiempo (Holt-Winters).
+
+----------------------
+
 ##  Cómo probarlo.
 Para probar el sistema sigue estos pasos.
 1. Clona este repositorio:
@@ -147,8 +150,6 @@ Dataset: [**Ventas en supermercados**](https://www.datos.gob.ar/sv/dataset/sspm-
 
 Fuente: https://datos.gob.ar  
 Los datos se utilizan con fines demostrativos y educativos.
-
-## ->[Volver a la tabla de contenido](#Tabla-de-Contenido)
 
 ## Aviso legal:
 > Los reportes y visualizaciones presentados son ejemplos generados a partir de datos abiertos y no representan información comercial confidencial.
