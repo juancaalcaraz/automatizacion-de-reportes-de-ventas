@@ -15,11 +15,11 @@
   - [Predicción de ventas](#predicción-de-ventas)
     - [Validación del modelo](#validación-del-modelo)
 - [Seguridad y privacidad de los datos](#Seguridad-y-Privacidad-de-Datos)    
-- [Sobre mí](#sobre-mí)
 - [Fuente de datos](#fuente-de-datos)
 - [Aviso legal](#aviso-legal)
 - [License / Licencia](#License--Licencia)
 - [Contacto / Contact](#contacto--contact)
+- [Sobre mí](#sobre-mí)
 
 ----------------------
 ## *Sobre el proyecto*
@@ -137,11 +137,6 @@ Para garantizar la integridad de los datos, los archivos generados requieren aut
 
 > **Nota:** La contraseña por defecto se configura en la variable `PASSWORD` dentro del archivo `.env`.
 
------------------
-# Sobre mí
-
-Soy Técnico Superior en Ciencias de Datos e Inteligencia Artificial. Desarrollo soluciones de automatización para análisis y reporting, Creo dashboard para la toma de decisiones estratégicas y aplico soluciones de IA para los negocios que lo requieran.
-
 -------------------
 ## Fuente de datos
 
@@ -169,5 +164,10 @@ You can also reach me via LinkedIn/ Puedes contactarme via LinkedIn: [**User Lin
 
 Or via E-mail: 
 ![Conntacot](demo/Contact.png)
+
+-----------------
+# Sobre mí
+
+¡Hola! Me llamo Juan Alcaraz y soy Técnico Superior en Ciencias de Datos e Inteligencia Artificial. Desarrollo soluciones de automatización para análisis y reporting. Creo dashboard para la toma de decisiones estratégicas. Aplico soluciones de Inteligencia Artificial y entreno modelos de Machine Learning y Deep Learning para los negocios que lo requieran. 
 
 ## ->[Volver a la tabla de contenido](#Tabla-de-Contenido)
