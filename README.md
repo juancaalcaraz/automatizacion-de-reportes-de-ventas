@@ -115,6 +115,13 @@ Antes de entrenarse con todo el data set, el modelo realizo predicciones para el
 
 #### Excel generado con las predicciónes para los futúros 3 meses de ventas. *Aclaración*: La última actualización del data set al ejecutarse este sistema fue en octubre del 2025.   
 ![Predicción de ventas](demo/Proyeccion_min_max.png)
+<!--Barra de navegación -->
+<p align="center">
+  <a href="#Tabla-de-Contenido" title="Volver al inicio">🏠</a> | 
+  <a href="#Cómo-probarlo" title="Anterior">⬅️</a>
+</p>  | 
+  <a href="#Seguridad-y-Privacidad-de-Datos" title="Siguiente">➡️</a>
+
 
 ## ->[Volver a la tabla de contenido](#Tabla-de-Contenido)
 -----------------------------------------------------------------------
@@ -173,8 +180,7 @@ Or via E-mail:
 ## ->[Volver a la tabla de contenido](#Tabla-de-Contenido)
 
  
-<p align="right">
-  <img src="./demo/icon.jpg" width="20", href="Tabla-de-Contenido">
+<p align="center">
   <a href="#Tabla-de-Contenido" title="Volver al inicio">🏠</a> | 
   <a href="#License--Licencia" title="Anterior">⬅️</a>
 </p>  | 
