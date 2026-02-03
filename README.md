@@ -96,7 +96,7 @@ Por defecto se usa el archivo csv de ventas de supermercados en argentina el cua
 <p align="center"> 
   <a href="#cómo-funciona" title="Anterior">⬅️</a>
   <a href="#Tabla-de-Contenido" title="Volver al inicio">|🏠|</a> 
-  <a href="#Ejemplos-de*salida" title="Siguiente">➡️</a>
+  <a href="#Ejemplos-de-salida" title="Siguiente">➡️</a>
 </p>  | 
   
 
