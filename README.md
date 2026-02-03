@@ -44,10 +44,11 @@ Este sistema automático genera reportes de ventas en Excel y PDF usando datos r
 5. Se envía el informe por email automáticamente.
 <!--Barra de navegación -->
 <p align="lefth">
-  <a href="#Tabla-de-Contenido" title="Volver al inicio">🏠</a> | 
   <a href="#Sobre-el-proyecto" title="Anterior">⬅️</a>
-</p>  | 
+  <a href="#Tabla-de-Contenido" title="Volver al inicio">🏠</a>
   <a href="#Cómo-probarlo" title="Siguiente">➡️</a>
+</p>  | 
+  
 
 ## -> [Volver a la tabla de contenido](#Tabla-de-Contenido)
 -------------------
@@ -94,11 +95,12 @@ Por defecto se usa el archivo csv de ventas de supermercados en argentina el cua
 
 ## ->[Volver a la tabla de contenido](#Tabla-de-Contenido)
 <!--Barra de navegación -->
-<p align="lefth">
-  <a href="#Tabla-de-Contenido" title="Volver al inicio">🏠</a> | 
+<p align="lefth"> 
   <a href="#cómo-funciona" title="Anterior">⬅️</a>
-</p>  | 
+  <a href="#Tabla-de-Contenido" title="Volver al inicio">🏠</a> |
   <a href="#Ejemplos-de*salida" title="Siguiente">➡️</a>
+</p>  | 
+  
 
 -------------------
 ## Ejemplos de salida
@@ -128,11 +130,12 @@ Antes de entrenarse con todo el data set, el modelo realizo predicciones para el
 #### Excel generado con las predicciónes para los futúros 3 meses de ventas. *Aclaración*: La última actualización del data set al ejecutarse este sistema fue en octubre del 2025.   
 ![Predicción de ventas](demo/Proyeccion_min_max.png)
 <!--Barra de navegación -->
-<p align="lefth">
-  <a href="#Tabla-de-Contenido" title="Volver al inicio">🏠</a> | 
+<p align="lefth"> | 
   <a href="#Cómo-probarlo" title="Anterior">⬅️</a>
-</p>  | 
+  <a href="#Tabla-de-Contenido" title="Volver al inicio">🏠</a>
   <a href="#Seguridad-y-Privacidad-de-Datos" title="Siguiente">➡️</a>
+</p>  | 
+  
 
 
 ## ->[Volver a la tabla de contenido](#Tabla-de-Contenido)
