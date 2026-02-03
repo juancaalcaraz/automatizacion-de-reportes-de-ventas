@@ -174,7 +174,7 @@ Or via E-mail:
 
  
 <p align="right">
-  [<img src="./demo/icon.jpg" width="20">](#Tabla-de-Contenido)
+  <img src="./demo/icon.jpg" width="20", href="Tabla-de-Contenido">
   <a href="#Tabla-de-Contenido" title="Volver al inicio">🏠</a> | 
   <a href="#License--Licencia" title="Anterior">⬅️</a>
 </p>  | 
