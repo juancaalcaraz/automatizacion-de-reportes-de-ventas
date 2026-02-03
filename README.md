@@ -171,3 +171,12 @@ Or via E-mail:
 ¡Hola! Me llamo Juan Alcaraz y soy Técnico Superior en Ciencias de Datos e Inteligencia Artificial. Desarrollo soluciones de automatización para análisis y reporting. Creo dashboards para la toma de decisiones estratégicas. Aplico soluciones de Inteligencia Artificial y entreno modelos de Machine Learning y Deep Learning para los negocios que lo requieran. 
 
 ## ->[Volver a la tabla de contenido](#Tabla-de-Contenido)
+
+ 
+<p align="right">
+  [<img src="./demo/icon.jpg" width="20">](#Tabla-de-Contenido)
+  <a href="#Tabla-de-Contenido" title="Volver al inicio">🏠</a> | 
+  <a href="#License--Licencia" title="Anterior">⬅️</a>
+</p>  | 
+  <!--<a href="#seccion-siguiente" title="Siguiente">➡️</a>
+Barra de navegación -->
