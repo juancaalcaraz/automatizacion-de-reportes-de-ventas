@@ -43,14 +43,13 @@ Este sistema automático genera reportes de ventas en Excel y PDF usando datos r
 4. Se exporta un Excel detallado.
 5. Se envía el informe por email automáticamente.
 <!--Barra de navegación -->
-<p align="lefth">
+<p align="center">
   <a href="#Sobre-el-proyecto" title="Anterior">⬅️</a>
   <a href="#Tabla-de-Contenido" title="Volver al inicio">🏠</a>
   <a href="#Cómo-probarlo" title="Siguiente">➡️</a>
 </p>  | 
   
 
-## -> [Volver a la tabla de contenido](#Tabla-de-Contenido)
 -------------------
 
 ## Tecnologías utilizadas
@@ -93,9 +92,8 @@ Esto generará los reportes de ventas y las predicciones de los próximos 3 mese
 ### **Nota técnica**
 Por defecto se usa el archivo csv de ventas de supermercados en argentina el cual se descarga directamente desde la URL del data set. Para proporcionar otro origen de datos debes hacerlo a traves del archivo config.py en la constante URL.
 
-## ->[Volver a la tabla de contenido](#Tabla-de-Contenido)
 <!--Barra de navegación -->
-<p align="lefth"> 
+<p align="center"> 
   <a href="#cómo-funciona" title="Anterior">⬅️</a>
   <a href="#Tabla-de-Contenido" title="Volver al inicio">🏠</a> |
   <a href="#Ejemplos-de*salida" title="Siguiente">➡️</a>
@@ -129,22 +127,22 @@ Antes de entrenarse con todo el data set, el modelo realizo predicciones para el
 
 #### Excel generado con las predicciónes para los futúros 3 meses de ventas. *Aclaración*: La última actualización del data set al ejecutarse este sistema fue en octubre del 2025.   
 ![Predicción de ventas](demo/Proyeccion_min_max.png)
+
 <!--Barra de navegación -->
-<p align="lefth"> | 
+<p align="center"> | 
   <a href="#Cómo-probarlo" title="Anterior">⬅️</a>
   <a href="#Tabla-de-Contenido" title="Volver al inicio">🏠</a>
   <a href="#Seguridad-y-Privacidad-de-Datos" title="Siguiente">➡️</a>
 </p>  | 
   
 
-
-## ->[Volver a la tabla de contenido](#Tabla-de-Contenido)
 -----------------------------------------------------------------------
 ## Seguridad y Privacidad de Datos
 
 Este proyecto prioriza la confidencialidad de la información comercial. No solo automatiza el envío, sino que protege los activos generados mediante las siguientes capas de seguridad:
 
 * **Cifrado de Archivos (AES):** Tanto los reportes en **PDF** como los archivos **Excel** se exportan con cifrado. Esto garantiza que la información de ventas no sea legible si el archivo cae en manos no autorizadas.
+* **Cifrado de Usuario y de Propietario:** El cifrado permite al propietario mediante su contraseña un acceso total al documento PDF mientras que la contraseña de usuario se le implementa el acceso de solo lectura( Se pueden darles más permisos si se desea ser menos restrictivos). 
 
 * **Arquitectura :** Se implementó un módulo de seguridad independiente (`src/security.py`) que centraliza la lógica de cifrado y el manejo de excepciones, asegurando que el proceso de envío no se interrumpa ante errores de permisos.
 
@@ -192,10 +190,7 @@ Or via E-mail:
 
 ¡Hola! Me llamo Juan Alcaraz y soy Técnico Superior en Ciencias de Datos e Inteligencia Artificial. Desarrollo soluciones de automatización para análisis y reporting. Creo dashboards para la toma de decisiones estratégicas. Aplico soluciones de Inteligencia Artificial y entreno modelos de Machine Learning y Deep Learning para los negocios que lo requieran. 
 
-## ->[Volver a la tabla de contenido](#Tabla-de-Contenido)
-
-
-<p align="lefth">
+<p align="center">
   <a href="#Tabla-de-Contenido" title="Volver al inicio">🏠</a> | 
   <a href="#License--Licencia" title="Anterior">⬅️</a>
 </p>  | 
