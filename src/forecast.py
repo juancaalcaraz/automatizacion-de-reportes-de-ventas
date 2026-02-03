@@ -4,8 +4,12 @@ import matplotlib.ticker as mtick
 from statsmodels.tsa.holtwinters import ExponentialSmoothing
 import numpy as np
 import pandas as pd
- 
-def plot_backtest_validation1(ts_scaled, train, test, test_predictions, figures_dir):
+from statsmodels.tsa.exponential_smoothing.ets import ETSModel # Nuevo import
+
+####################################################
+# esta función ya no se usa pero quedo como legacy #
+####################################################
+def plot_backtest_validation_1(ts_scaled, train, test, test_predictions, figures_dir):
     """
     Genera un gráfico comparando la predicción del backtest contra la realidad.
     """
@@ -27,8 +31,10 @@ def plot_backtest_validation1(ts_scaled, train, test, test_predictions, figures_
     plt.tight_layout()
     plt.savefig(os.path.join(figures_dir, "backtest_validation.png"), dpi=150)
     plt.close()
-
-def plot_forecast_holt_winters1(df, figures_dir,output_forecast, horizon=3):
+####################################################
+# esta función ya no se usa pero quedo como legacy #
+####################################################
+def plot_forecast_holt_winters_1(df, figures_dir,output_forecast, horizon=3):
     """
     Genera pronóstico Holt-Winters con validación (Backtesting) y bandas de confianza.
     """
@@ -143,13 +149,7 @@ def plot_forecast_holt_winters1(df, figures_dir,output_forecast, horizon=3):
     print("✅ Excel exportado con escenarios Mínimo, Base y Máximo.")
     
     return forecast_df, lower, upper
-# Tratando nuevamente con ets           
-import os
-import matplotlib.pyplot as plt
-import matplotlib.ticker as mtick 
-from statsmodels.tsa.exponential_smoothing.ets import ETSModel # Nuevo import
-import numpy as np
-import pandas as pd
+# Tratando nuevamente con etsMoldes           
 
 def plot_backtest_validation(ts_scaled, train, test, test_predictions, figures_dir):
     plt.figure(figsize=(10, 5))
@@ -164,7 +164,7 @@ def plot_backtest_validation(ts_scaled, train, test, test_predictions, figures_d
     plt.tight_layout()
     plt.savefig(os.path.join(figures_dir, "backtest_validation.png"), dpi=150)
     plt.close()
-
+# Aunque dice holt_winters, en realidad es ETSModels.
 def plot_forecast_holt_winters(df, figures_dir, output_forecast, horizon=3):
     
     os.makedirs(figures_dir, exist_ok=True)

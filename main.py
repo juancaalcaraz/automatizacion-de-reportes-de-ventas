@@ -42,7 +42,7 @@ def main():
             horizon=3
     )
     print("Cifrando el Forecast...")
-    protect_excel(OUTPUT_FORECAST,PASSWORD)
+    protect_excel(OUTPUT_FORECAST,PASSWORD, blind=True)
     print("Exportando reporte...")
     export_report(df, kpis, OUTPUT_EXCEL, LAST_N_MONTHS)
 
