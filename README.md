@@ -45,7 +45,7 @@ Este sistema automático genera reportes de ventas en Excel y PDF usando datos r
 <!--Barra de navegación -->
 <p align="center">
   <a href="#Sobre-el-proyecto" title="Anterior">⬅️</a>
-  <a href="#Tabla-de-Contenido" title="Volver al inicio">🏠</a>
+  <a href="#Tabla-de-Contenido" title="Volver al inicio">|🏠|</a>
   <a href="#Cómo-probarlo" title="Siguiente">➡️</a>
 </p>  | 
   
@@ -95,7 +95,7 @@ Por defecto se usa el archivo csv de ventas de supermercados en argentina el cua
 <!--Barra de navegación -->
 <p align="center"> 
   <a href="#cómo-funciona" title="Anterior">⬅️</a>
-  <a href="#Tabla-de-Contenido" title="Volver al inicio">🏠</a> |
+  <a href="#Tabla-de-Contenido" title="Volver al inicio">|🏠|</a> 
   <a href="#Ejemplos-de*salida" title="Siguiente">➡️</a>
 </p>  | 
   
@@ -131,7 +131,7 @@ Antes de entrenarse con todo el data set, el modelo realizo predicciones para el
 <!--Barra de navegación -->
 <p align="center"> | 
   <a href="#Cómo-probarlo" title="Anterior">⬅️</a>
-  <a href="#Tabla-de-Contenido" title="Volver al inicio">🏠</a>
+  <a href="#Tabla-de-Contenido" title="Volver al inicio">|🏠|</a>
   <a href="#Seguridad-y-Privacidad-de-Datos" title="Siguiente">➡️</a>
 </p>  | 
   
@@ -193,5 +193,5 @@ Or via E-mail:
 <p align="center">
   <a href="#Tabla-de-Contenido" title="Volver al inicio">🏠</a> | 
   <a href="#License--Licencia" title="Anterior">⬅️</a>
-</p>  | 
+</p>   
 
