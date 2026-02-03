@@ -88,8 +88,8 @@ def generate_pdf(kpis, forecast_df, figures_dir, output_path):
      """
     # --- Footer ---
     elements.append(Paragraph(
-        "Este reporte utiliza modelos predictivos basados en suavizamiento exponencial (Holt-Winters). "
-        "Los escenarios representan un intervalo de confianza del 95%.",
+        "Este reporte utiliza modelos estadísticos de suavizamiento exponencial para estimar la evolución de las ventas y proyectar los próximos 3 meses. "
+        "Los escenarios reflejan un rango estimado de resultados, considerando un alto nivel de confianza (95%).",
         styles['Italic']
     ))
 

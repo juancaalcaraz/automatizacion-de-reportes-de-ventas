@@ -12,6 +12,10 @@ def auto_adjust_columns(ws):
                 max_length = max(max_length, len(str(cell.value)))
         ws.column_dimensions[col_letter].width = max_length + 3
 
+def protect_sheet(ws, password="tu_password"):
+    """Habilita la protección de la hoja y establece una contraseña."""
+    ws.protection.sheet = True # Activa la protección
+    ws.protection.password = password # Define la contraseña
 
 def export_report(df, kpis, output_excel, last_n_months):
     os.makedirs(os.path.dirname(output_excel), exist_ok=True)
@@ -23,17 +27,18 @@ def export_report(df, kpis, output_excel, last_n_months):
 
         # ---------- KPIs ----------
         kpis.to_excel(writer, sheet_name="KPIs", index=False, startrow=2)
-        ws = writer.sheets["KPIs"]
-
-        ws["A1"] = "Indicadores clave – Ventas en Supermercados"
-        ws["A1"].font = Font(bold=True, size=14)
-
-        auto_adjust_columns(ws)
+        ws_kpis = writer.sheets["KPIs"]
+        ws_kpis["A1"] = "Indicadores clave – Ventas en Supermercados"
+        ws_kpis["A1"].font = Font(bold=True, size=14)
+        auto_adjust_columns(ws_kpis)
+        protect_sheet(ws_kpis) # Aplicar protección
 
         # ---------- Serie histórica ----------
         hist = df.tail(last_n_months * 2)
         hist.to_excel(writer, sheet_name="Serie histórica", index=False)
-        auto_adjust_columns(writer.sheets["Serie histórica"])
+        ws_hist = writer.sheets["Serie histórica"]
+        auto_adjust_columns(ws_hist)
+        protect_sheet(ws_hist) # Aplicar protección
 
         # ---------- Medios de pago ----------
         last = df.iloc[-1]
@@ -49,6 +54,9 @@ def export_report(df, kpis, output_excel, last_n_months):
         pagos["Participación"] /= pagos["Participación"].sum()
 
         pagos.to_excel(writer, sheet_name="Medios de pago", index=False)
-        auto_adjust_columns(writer.sheets["Medios de pago"])
+        ws_pagos = writer.sheets["Medios de pago"]
+        auto_adjust_columns(ws_pagos)
+        protect_sheet(ws_pagos) # Aplicar protección
+        
+    print("✔ Excel generado y protegido correctamente")
 
-    print("✔ Excel generado correctamente")
