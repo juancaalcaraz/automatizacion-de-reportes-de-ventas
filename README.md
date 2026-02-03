@@ -191,9 +191,9 @@ Or via E-mail:
 
 ## ->[Volver a la tabla de contenido](#Tabla-de-Contenido)
 
- 
+<div, align="lefth"> 
 <p align="lefth">
   <a href="#Tabla-de-Contenido" title="Volver al inicio">🏠</a> | 
   <a href="#License--Licencia" title="Anterior">⬅️</a>
 </p>  | 
-
+</div>
