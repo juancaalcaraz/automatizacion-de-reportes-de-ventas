@@ -9,3 +9,5 @@ __pycache__/
 outputs/
 *.pdf
 *.xlsx
+
+ventas-totales-supermercados-2.csv
