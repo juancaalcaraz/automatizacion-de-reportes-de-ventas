@@ -47,7 +47,7 @@ Este sistema automático genera reportes de ventas en Excel y PDF usando datos r
   <a href="#Sobre-el-proyecto" title="Anterior">⬅️</a>
   <a href="#Tabla-de-Contenido" title="Volver al inicio">|🏠|</a>
   <a href="#Cómo-probarlo" title="Siguiente">➡️</a>
-</p>  | 
+</p>   
   
 
 -------------------
@@ -97,7 +97,7 @@ Por defecto se usa el archivo csv de ventas de supermercados en argentina el cua
   <a href="#cómo-funciona" title="Anterior">⬅️</a>
   <a href="#Tabla-de-Contenido" title="Volver al inicio">|🏠|</a> 
   <a href="#Ejemplos-de-salida" title="Siguiente">➡️</a>
-</p>  | 
+</p>  
   
 
 -------------------
@@ -129,11 +129,11 @@ Antes de entrenarse con todo el data set, el modelo realizo predicciones para el
 ![Predicción de ventas](demo/Proyeccion_min_max.png)
 
 <!--Barra de navegación -->
-<p align="center"> | 
+<p align="center">  
   <a href="#Cómo-probarlo" title="Anterior">⬅️</a>
   <a href="#Tabla-de-Contenido" title="Volver al inicio">|🏠|</a>
   <a href="#Seguridad-y-Privacidad-de-Datos" title="Siguiente">➡️</a>
-</p>  | 
+</p>   
   
 
 -----------------------------------------------------------------------
