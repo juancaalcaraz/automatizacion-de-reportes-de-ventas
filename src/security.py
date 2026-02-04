@@ -5,6 +5,7 @@ import os
 import secrets
 from openpyxl import load_workbook
 from openpyxl.utils import get_column_letter
+from openpyxl.styles import Font, PatternFill, Alignment
 
 def protect_pdf(input_path, password):
     """
@@ -36,36 +37,51 @@ def protect_pdf(input_path, password):
         print(f"❌ Error al encriptar el PDF: {e}")
 
 def protect_sheet_only(file_path, password="", blind=False):
+    """
+    Bloquea las celdas de un archivo xls. Estiliza el encabezado y
+    autoajusta las columnas antes de aplicar el bloqueo de celdas
+    Args:
+        input_path (str): Ruta local del archivo PDF a proteger.
+        password (str): Contraseña que se aplicará al archivo.
+        blind (Bool)default=False: Crea una contraseña ciega de cifrado
+                que nadie conoce mediante el modulo secrets. 
+    """
     wb = load_workbook(file_path)
     target_password = secrets.token_hex(16) if blind else password
     
+    # Definir el estilo del encabezado (Azul profesional)
+    header_fill = PatternFill(start_color="1F4E78", end_color="1F4E78", fill_type="solid")
+    header_font = Font(color="FFFFFF", bold=True)
+    center_alignment = Alignment(horizontal="center")
+
     for ws in wb.worksheets:
-        # 1. AUTOAJUSTE: Iterar por columnas antes de proteger
+        # 1. ESTILO DE ENCABEZADOS (Fila 1)
+        for cell in ws[1]: # Itera sobre la primera fila
+            cell.fill = header_fill
+            cell.font = header_font
+            cell.alignment = center_alignment
+
+        # 2. AUTOAJUSTE DE COLUMNAS
         for column in ws.columns:
             max_length = 0
-            column_letter = column[0].column_letter # Obtiene la letra (A, B, C...)
+            column_letter = column[0].column_letter 
             
             for cell in column:
-                try:
-                    if cell.value:
-                        # Calculamos el largo del texto en la celda
-                        val_len = len(str(cell.value))
-                        if val_len > max_length:
-                            max_length = val_len
-                except:
-                    pass
+                if cell.value:
+                    val_len = len(str(cell.value))
+                    if val_len > max_length:
+                        max_length = val_len
             
-            # Ajustar ancho con un margen extra (factor de 1.2 o +2 caracteres)
-            adjusted_width = (max_length + 2)
-            ws.column_dimensions[column_letter].width = adjusted_width
+            # Ajuste dinámico: ancho del texto + un pequeño margen
+            ws.column_dimensions[column_letter].width = max_length + 3
 
-        # 2. PROTECCIÓN: Ahora que el diseño es correcto, bloqueamos
+        # 3. BLOQUEO FINAL
+        # Permitimos 'formatColumns' para que el usuario pueda estirar columnas si quiere
+        ws.protection.set_password(target_password)
         ws.protection.sheet = True
-        ws.protection.password = target_password
+        ws.protection.formatColumns = False # Cambiar a True si quieres que el usuario las pueda estirar
         
     wb.save(file_path)
-
-
 
 def protect_excel(file_path, password, protect_sheet=True , blind=False):
     """
@@ -74,6 +90,9 @@ def protect_excel(file_path, password, protect_sheet=True , blind=False):
     Args:
         file_path (str): Ruta local del archivo Excel a proteger.
         password (str): Contraseña que se aplicará al archivo.
+        protect_sheet (bool) default=True : Aplicar bloque de celdas al archivo xlsx.
+        blind (bool) default=False : True para aplicar contraseña que nadie sabe (ciega).
+                                    por defecto se aplica la contraseña del argumento password
     """
     if protect_sheet:
         if blind:
