@@ -1,6 +1,6 @@
 from config import DATA_URL, OUTPUT_EXCEL, FIGURES_DIR, LAST_N_MONTHS, OUTPUT_FORECAST
 
-from src.ingest import ingest_data
+from src.manage_data import ingest_data
 from src.validation import validate_data
 from src.metrics import compute_kpis
 from src.visualization import plot_sales
