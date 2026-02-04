@@ -9,3 +9,4 @@ msoffcrypto-tool~=5.4.2
 python-dotenv
 numpy~=1.25.2
 cryptography~=46.0.4
+pypdf[crypto]~=6.6.2

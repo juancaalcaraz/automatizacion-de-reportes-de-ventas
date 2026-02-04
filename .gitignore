@@ -11,3 +11,5 @@ outputs/
 *.xlsx
 
 ventas-totales-supermercados-2.csv
+
+data/

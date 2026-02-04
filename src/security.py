@@ -1,4 +1,4 @@
-import PyPDF2
+import pypdf
 import msoffcrypto
 import io
 import os
@@ -21,13 +21,13 @@ def protect_pdf(input_path, password, user_password="1234"):
             print(f"⚠️ Error: No se encontró el PDF en {input_path}")
             return
 
-        reader = PyPDF2.PdfReader(input_path)
-        writer = PyPDF2.PdfWriter()
+        reader = pypdf.PdfReader(input_path)
+        writer = pypdf.PdfWriter()
 
         for page in reader.pages:
             writer.add_page(page)
 
-        writer.encrypt(user_password=user_password, owner_password=password, permissions_flag=-3904,  algorithm="AES-256-R5")
+        writer.encrypt(user_password=user_password, owner_password=password, permissions_flag=-3904, algorithm="AES-256-R5")
 
         with open(input_path, "wb") as f:
             writer.write(f)
