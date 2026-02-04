@@ -71,6 +71,8 @@ def generate_pdf(kpis, forecast_df, figures_dir, output_path):
     elements.append(table_forecast)
     elements.append(Spacer(1, 15))
     """
+    # Por estetica borre esta parte. Pero si quitas el docstring
+    # los gráficos se integran e el pdf.
     # --- Insertar gráficos ---
     img_files = [ "medios_pago.png", "serie_historica.png"]
     titles = ["Distribución de Medios de Pago", "Ventas por Categoría"]

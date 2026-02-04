@@ -13,7 +13,10 @@ import os
 from dotenv import load_dotenv
 # === Cargar variables de entorno ===
 load_dotenv()
+# Contraseña del dueño del archivo. 
 PASSWORD = os.getenv("PASSWORD")
+# Contraseña para el usuario. 
+USER_PASSWORD = os.getenv("USER_PASSWORD")
 # Extraemos las variables del envio del mail en .env
 SMTP_USER = os.getenv("SMTP_USER")
 SMTP_PASSWORD = os.getenv("SMTP_PASS")
@@ -53,7 +56,7 @@ def main():
     print("Generando PDF ejecutivo...")
     generate_pdf(kpis, forecast_data, FIGURES_DIR, PDF_PATH)
     print("Encriptando PDF...")
-    protect_pdf(PDF_PATH, PASSWORD)
+    protect_pdf(PDF_PATH, password=PASSWORD, user_password=USER_PASSWORD)
     print("Proceso de envío de email...")
     send_report_email(
     send_email=False,

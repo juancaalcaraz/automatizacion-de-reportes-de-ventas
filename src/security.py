@@ -7,13 +7,14 @@ from openpyxl import load_workbook
 from openpyxl.utils import get_column_letter
 from openpyxl.styles import Font, PatternFill, Alignment
 
-def protect_pdf(input_path, password):
+def protect_pdf(input_path, password, user_password="1234"):
     """
     Cifra un archivo PDF existente mediante una contraseña.
     
     Args:
         input_path (str): Ruta local del archivo PDF a proteger.
         password (str): Contraseña que se aplicará al archivo.
+        user_password (str) dafault="1234": contraseña de usuario, aplica diferentes restricciones.
     """
     try:
         if not os.path.exists(input_path):
@@ -26,7 +27,7 @@ def protect_pdf(input_path, password):
         for page in reader.pages:
             writer.add_page(page)
 
-        writer.encrypt(user_password="1234", owner_password=password, permissions_flag=-3904)
+        writer.encrypt(user_password=user_password, owner_password=password, permissions_flag=-3904)
 
         with open(input_path, "wb") as f:
             writer.write(f)
