@@ -108,12 +108,12 @@ Por defecto se usa el archivo csv de ventas de supermercados en argentina el cua
 **Primera hoja del reporte**  
 Muestra los KPI de ventas reales del último mes, la variación interanual y la participación de los canales online.
 
-![Primera hoja del reporte](demo/excel_parte1.png)
+![Primera hoja del reporte](demo/excel_hoja1.png)
 
 **Segunda hoja del reporte**  
 Contiene el historial de ventas utilizado para el análisis y la predicción.
 
-![Segunda hoja del reporte](demo/excel_parte2.png)
+![Segunda hoja del reporte](demo/excel_hoja2.png)
 
 ### Predicción de ventas
 Originalmente, el sistema se desarrolló utilizando el modelo Holt-Winters (Suavizado Exponencial Triple). Tras una fase de validación y mejora, se migró hacia ETS (Error-Trend-Seasonal) como motor principal. Este modelo se entrena cada ves que el sistema se ejecuta, actualizando sus estimaciones con la información más reciente.
@@ -126,7 +126,7 @@ Antes de entrenarse con todo el data set, el modelo realizo predicciones para el
 ![Predicción de ventas](demo/forecast_hw.png)
 
 #### Excel generado con las predicciónes para los futúros 3 meses de ventas. *Aclaración*: La última actualización del data set al ejecutarse este sistema fue en octubre del 2025.   
-![Predicción de ventas](demo/Proyeccion_min_max.png)
+![Predicción de ventas](demo/forecast_report.png)
 
 <!--Barra de navegación -->
 <p align="center">  
