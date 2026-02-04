@@ -4,7 +4,7 @@ from src.ingest import ingest_data
 from src.validation import validate_data
 from src.metrics import compute_kpis
 from src.visualization import plot_sales
-from src.forecast import plot_forecast_holt_winters
+from src.forecast import plot_forecast_ETSModels
 from src.reporting import export_report
 from src.pdf_report import generate_pdf
 from src.security import protect_pdf, protect_excel
@@ -36,7 +36,7 @@ def main():
     
     print("Generando pronóstico...")
     
-    forecast_data, lower, upper = plot_forecast_holt_winters(
+    forecast_data, lower, upper = plot_forecast_ETSModels(
             df,
             FIGURES_DIR,OUTPUT_FORECAST, 
             horizon=3
