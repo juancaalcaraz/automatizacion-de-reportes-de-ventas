@@ -138,14 +138,12 @@ Antes de entrenarse con todo el data set, el modelo realizo predicciones para el
 
 -----------------------------------------------------------------------
 ## Seguridad y Privacidad de Datos
-
-Este proyecto prioriza la confidencialidad de la información comercial. No solo automatiza el envío, sino que protege los activos generados mediante las siguientes capas de seguridad:
-
-* **Cifrado de Archivos (AES):** Tanto los reportes en **PDF** como los archivos **Excel** se exportan con cifrado. Esto garantiza que la información de ventas no sea legible si el archivo cae en manos no autorizadas.
-* **Cifrado de Usuario y de Propietario:** El cifrado permite al propietario mediante su contraseña un acceso total al documento PDF mientras que la contraseña de usuario se le implementa el acceso de solo lectura( Se pueden darles más permisos si se desea ser menos restrictivos). 
-
-* **Arquitectura :** Se implementó un módulo de seguridad independiente (`src/security.py`) que centraliza la lógica de cifrado y el manejo de excepciones, asegurando que el proceso de envío no se interrumpa ante errores de permisos.
-
+  Este sistema implementa múltiples capas de seguridad para proteger la información estratégica y grantizar la transparencia de los modelos predictivos:
+* **Cifrado de Acceso (Capa Externa):** Tanto los reportes en **PDF** como los archivos **Excel** utilizan cifrado de acceso. Ningún usuario puede abrir o visualizar los datos sin la contraseña maestra definida de forma segura en las variables de entorno (`.env`).
+* **Control de Permisos y Solo Lectura (Capa Interna PDF):** Se implementó una distinción entre *User* y *Owner password*. Los reportes PDF están configurados por defecto con **restricciones de impresión y copiado de texto**, asegurando que la información solo sea consultada en entornos digitales controlados.
+* **Inmutabilidad del Forecast (Capa de Integridad):** Para evitar la manipulación de los resultados estadísticos, las hojas de predicciones en Excel se sellan con una **clave aleatoria generada en tiempo de ejecución**. Esto garantiza que ni el usuario ni terceros puedan alterar los valores del modelo *ETSModels*, preservando la integridad de la auditoría.
+* **Protección de Estructura (Excel):** Mediante el motor `openpyxl`, se bloquea la edición de celdas y el formato de las hojas, evitando errores accidentales o modificaciones malintencionadas en los datos reportados.
+* **Arquitectura Desacoplada:** La lógica de protección reside en un módulo independiente (`src/security.py`), lo que permite escalar el sistema para integrar gestores de secretos sin afectar el núcleo del análisis de datos.
 ### Evidencia de Protección
 
 Para garantizar la integridad de los datos, los archivos generados requieren autenticación para su apertura:
@@ -155,7 +153,8 @@ Para garantizar la integridad de los datos, los archivos generados requieren aut
 | ![Password Excel](demo/Excel_pretegido.png) | ![Password PDF](demo/PDF_protegido.png) |
 | *Acceso restringido a datos crudos* | *Reporte ejecutivo cifrado* |
 
-> **Nota:** La contraseña por defecto se configura en la variable `PASSWORD` dentro del archivo `.env`.
+> [!IMPORTANT]
+> **Configuración de Seguridad:** La contraseña por defecto se define en la variable `PASSWORD` dentro del archivo `.env`. Utiliza el archivo `.env.example` como plantilla (renombrándolo a `.env`) para configurar tus credenciales personales antes de ejecutar el sistema.
 
 -------------------
 ## Fuente de datos
