@@ -27,7 +27,7 @@ def protect_pdf(input_path, password, user_password="1234"):
         for page in reader.pages:
             writer.add_page(page)
 
-        writer.encrypt(user_password=user_password, owner_password=password, permissions_flag=-3904)
+        writer.encrypt(user_password=user_password, owner_password=password, permissions_flag=-3904,  algorithm="AES-256-R5")
 
         with open(input_path, "wb") as f:
             writer.write(f)
