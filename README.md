@@ -22,8 +22,14 @@
 - [Sobre mí](#sobre-mí)
 
 ----------------------
-## *Sobre el proyecto*
-Este sistema automático genera reportes de ventas en Excel y PDF usando datos reales, calcula indicadores clave (KPIs), crea gráficos, hace predicciones sobre el total de futuras ventas y envía por email los archivos resultantes de la ejecución. Ideal para crear informes periódicos sin intervención manual.
+## Sobre el proyecto
+
+Este sistema automatiza la generación y distribución de reportes de ventas utilizando datos reales. Produce informes en **Excel y PDF**, incluyendo **KPIs clave, tablas dinámicas y gráficos**, con un formato profesional listo para compartir con directivos o equipos comerciales.
+
+Además, incorpora **predicción de ventas a 3 meses** mediante modelos estadísticos(ETS), proporcionando un pronóstico confiable del total de ventas futuras. Los resultados se protegen con **cifrado jerárquico**: los PDFs cuentan con contraseña *owner* y *user* (limitando impresión y copia por defecto), y los archivos Excel tienen celdas bloqueadas para evitar modificaciones no autorizadas. El forecast también queda protegido y no puede ser editado.
+
+Esto lo convierte en una solución ideal para equipos de ventas, retail, cadenas de tiendas, ditribución, empresas con regulaciones (datos sensibles, contabilidad, etc.) que necesitan informes seguros y sin intervención manual.
+
 
 ----------------------
 ## Beneficios para tu negocio
