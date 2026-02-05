@@ -37,6 +37,7 @@ def protect_pdf(input_path, password, user_password="1234"):
     except Exception as e:
         print(f"❌ Error al encriptar el PDF: {e}")
 
+# Función de ayuda para proteger las hojas del excel. 
 def protect_sheet_only(file_path, password="", blind=False):
     """
     Bloquea las celdas de un archivo xls. Estiliza el encabezado y
@@ -48,8 +49,7 @@ def protect_sheet_only(file_path, password="", blind=False):
                 que nadie conoce mediante el modulo secrets. 
     """
     wb = load_workbook(file_path)
-    target_password = secrets.token_hex(16) if blind else password
-    
+    target_password = secrets.token_hex(8) if blind else password
     # Definir el estilo del encabezado (Azul profesional)
     header_fill = PatternFill(start_color="1F4E78", end_color="1F4E78", fill_type="solid")
     header_font = Font(color="FFFFFF", bold=True)
@@ -83,24 +83,14 @@ def protect_sheet_only(file_path, password="", blind=False):
         ws.protection.formatColumns = False # Cambiar a True si quieres que el usuario las pueda estirar
         
     wb.save(file_path)
-
-def protect_excel(file_path, password, protect_sheet=True , blind=False):
+# Función de ayuda para encriptar en 2 niveles.
+def encryp_excel(file_path, password):
     """
     Cifra un archivo Excel (.xlsx) mediante el estándar de Microsoft Office.
-    
     Args:
         file_path (str): Ruta local del archivo Excel a proteger.
         password (str): Contraseña que se aplicará al archivo.
-        protect_sheet (bool) default=True : Aplicar bloque de celdas al archivo xlsx.
-        blind (bool) default=False : True para aplicar contraseña que nadie sabe (ciega).
-                                    por defecto se aplica la contraseña del argumento password
     """
-    if protect_sheet:
-        if blind:
-            protect_sheet_only(file_path, blind=True)
-        else:
-            protect_sheet_only(file_path, password)
-            
     try:
         if not os.path.exists(file_path):
             print(f"⚠️ Error: No se encontró el Excel en {file_path}")
@@ -124,3 +114,31 @@ def protect_excel(file_path, password, protect_sheet=True , blind=False):
         
     except Exception as e:
         print(f"❌ Error al encriptar el Excel: {e}")
+
+def protect_excel(file_path, password, user_password="1234", protect_sheet=True , blind=False):
+    """
+    Cifra un archivo Excel con una o dos capas de seguridad mediante el llamado
+    a otras funciones definidas en este archivo.    
+    Args:
+        file_path (str): Ruta local del archivo Excel a proteger.
+        password (str): Contraseña que se aplicará al archivo.
+        protect_sheet (bool) default=True : Aplicar bloque de celdas al archivo xlsx.
+        blind (bool) default=False : True para aplicar contraseña que nadie sabe (ciega).
+                                    por defecto se aplica la contraseña del argumento password
+    """
+    if protect_sheet:
+        if blind:
+            # Protege el excel con contraseña desconocida para las celdas. 
+            protect_sheet_only(file_path, blind=True)
+            # Excel se abre con password del propietario(owner). 
+            encryp_excel(file_path, password)
+        else:
+            # Excel solo modificable con contraseña de propietario(owner).
+            protect_sheet_only(file_path, password)
+            # Excel se abre con contraseña de usuario(User).
+            encryp_excel(file_path, user_password)
+    else:
+        # Si no existe bloqueo de celdas.
+        # El excel se abre con contraseña de propietario(owner).
+        encryp_excel(file_path, password)
+            

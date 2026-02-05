@@ -51,8 +51,8 @@ def main():
 
     print("Reporte generado correctamente.")
 
-    print("Encriptando Reporte en Excel")
-    protect_excel(OUTPUT_EXCEL, PASSWORD)
+    print("Encriptando el Acceso y La modificación del Reporte en Excel")
+    protect_excel(OUTPUT_EXCEL, password=PASSWORD, user_password=USER_PASSWORD)
     print("Generando PDF ejecutivo...")
     generate_pdf(kpis, forecast_data, FIGURES_DIR, PDF_PATH)
     print("Encriptando PDF...")
