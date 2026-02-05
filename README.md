@@ -1,4 +1,7 @@
 # Automatización de Reportes y predicción de Ventas
+
+> Automatiza reportes de ventas, predicción de ingresos y envío seguro de informes por email para equipos comerciales.
+
 ![banner](demo/banner.png)
 
 -------------------
