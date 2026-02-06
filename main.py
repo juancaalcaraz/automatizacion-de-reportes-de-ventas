@@ -1,6 +1,5 @@
 from config import DATA_URL, OUTPUT_EXCEL, FIGURES_DIR, LAST_N_MONTHS, OUTPUT_FORECAST
-
-from src.manage_data import ingest_data
+from src.manage_data import ingest_data, archive_sent_files
 from src.validation import validate_data
 from src.metrics import compute_kpis
 from src.visualization import plot_sales
@@ -73,5 +72,11 @@ def main():
     smtp_user=SMTP_USER,
     smtp_password=SMTP_PASSWORD
     ) 
+    archived_data = input("¿Desea archivar los documentos en la carpeta data/sendet? " \
+    "Ingresa 'No' para cancelar. De lo contrario los documentos seran archivados")
+    if archived_data.strip().lower()!="no":
+        archive_sent_files([OUTPUT_FORECAST, OUTPUT_EXCEL, PDF_PATH, FIGURES_DIR])
+    input("Presiona cualquier tecla para salir del programa")
+
 if __name__ == "__main__":
     main()
