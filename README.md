@@ -164,8 +164,24 @@ Para garantizar la integridad de los datos, los archivos generados requieren aut
 
 > [!IMPORTANT]
 > **Configuración de Seguridad:** La contraseña por defecto se define en la variable `PASSWORD` dentro del archivo `.env`. Utiliza el archivo `.env.example` como plantilla (renombrándolo a `.env`) para configurar tus credenciales personales antes de ejecutar el sistema.
-
 -------------------
+
+##  Visualización de Resultados (Demos)
+
+Para facilitar la revisión del proyecto sin necesidad de ejecutar el código localmente, se han incluido ejemplos reales de los archivos generados. Estos documentos demuestran la aplicación de las políticas de seguridad y el formato final de los datos:
+
+* [📄 **Reporte de Ventas PDF**](./demo/reporte_ejecutivo.pdf)
+  * **Estado:** Cifrado y Protegido.
+  * **Password de Usuario:** `UserL1140`
+  * **Password de Propietario:** `4ut0m4t1zac1*n`
+  * **Características:** Acceso de solo lectura con clave de usuario, incluyendo **restricción de impresión y copia de contenido**. Acceso total disponible mediante clave de propietario.
+
+* [📊 **Forecast de Ventas Excel**](./demo/forecast.xlsx)
+  * **Estado:** Cifrado y Protegido.
+  * **Password:** `4ut0m4t1zac1*n`
+  * **Características:** Cifrado de apertura y **bloqueo de edición** en la hoja de predicciones (*Contraseña ciega*) para garantizar la integridad y auditoría del modelo.
+
+------------------
 ## Fuente de datos
 
 Los datos utilizados provienen del portal de Datos Abiertos del Gobierno de la República Argentina  
