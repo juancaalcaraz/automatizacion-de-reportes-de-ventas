@@ -17,7 +17,8 @@
   - [Reporte de ventas (Excel)](#reporte-de-ventas-excel)
   - [Predicción de ventas](#predicción-de-ventas)
     - [Validación del modelo](#validación-del-modelo)
-- [Seguridad y privacidad de los datos](#Seguridad-y-Privacidad-de-Datos)    
+- [Seguridad y privacidad de los datos](#Seguridad-y-Privacidad-de-Datos)
+- [Visualización y Descarga de Resultados](#Visualización-y-Descarga-de-Resultados)    
 - [Fuente de datos](#fuente-de-datos)
 - [Aviso legal](#aviso-legal)
 - [License / Licencia](#License--Licencia)
@@ -166,7 +167,7 @@ Para garantizar la integridad de los datos, los archivos generados requieren aut
 > **Configuración de Seguridad:** La contraseña por defecto se define en la variable `PASSWORD` dentro del archivo `.env`. Utiliza el archivo `.env.example` como plantilla (renombrándolo a `.env`) para configurar tus credenciales personales antes de ejecutar el sistema.
 -------------------
 
-##  Visualización de Resultados (Demos)
+##  Visualización y Descarga de Resultados
 
 Para facilitar la revisión del proyecto sin necesidad de ejecutar el código localmente, se han incluido ejemplos reales de los archivos generados. Estos documentos demuestran la aplicación de las políticas de seguridad y el formato final de los datos:
 
