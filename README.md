@@ -170,13 +170,13 @@ Para garantizar la integridad de los datos, los archivos generados requieren aut
 
 Para facilitar la revisión del proyecto sin necesidad de ejecutar el código localmente, se han incluido ejemplos reales de los archivos generados. Estos documentos demuestran la aplicación de las políticas de seguridad y el formato final de los datos:
 
-* [📄 **Reporte de Ventas PDF**](./demo/reporte_ejecutivo.pdf)
+* [📥 **Reporte de Ventas PDF**](./demo/reporte_ejecutivo.pdf?raw=true)
   * **Estado:** Cifrado y Protegido.
   * **Password de Usuario:** `UserL1140`
   * **Password de Propietario:** `4ut0m4t1zac1*n`
   * **Características:** Acceso de solo lectura con clave de usuario, incluyendo **restricción de impresión y copia de contenido**. Acceso total disponible mediante clave de propietario.
 
-* [📊 **Forecast de Ventas Excel**](./demo/forecast.xlsx)
+* [📥 **Forecast de Ventas Excel**](./demo/forecast.xlsx?raw=true)
   * **Estado:** Cifrado y Protegido.
   * **Password:** `4ut0m4t1zac1*n`
   * **Características:** Cifrado de apertura y **bloqueo de edición** en la hoja de predicciones (*Contraseña ciega*) para garantizar la integridad y auditoría del modelo.
